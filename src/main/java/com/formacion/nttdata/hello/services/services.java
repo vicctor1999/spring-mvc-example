@@ -1,0 +1,15 @@
+package com.formacion.nttdata.hello.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class services {
+	
+	@Autowired
+	public String HomeService() {
+		return "hola";
+	}
+
+}

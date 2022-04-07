@@ -1,9 +1,12 @@
 package com.formacion.nttdata.hello.controller;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -21,6 +24,8 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 * 
 	 */
+	/*@Autowired
+	HomeService servicio;*/
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 
@@ -42,12 +47,33 @@ public class HomeController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 
-	public String user(@Validated User user, Model model) {
+	public String user(@Validated User user, Model model, Locale locale) {
 
-		System.out.println("User Page Requested");
-
+		System.out.println("User Page Requested"+user.getNumber());
+		int number=user.getNumber();
+		//metodo 1
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		date.setDate(date.getDate() + number);
+		String formattedDate = dateFormat.format(date);
+		
+		///metodo 2
+		Calendar calendar = Calendar.getInstance();
+		Calendar fecha = new GregorianCalendar();
+		int año = fecha.get(Calendar.YEAR);
+		System.out.println("Fecha"+(calendar.get(fecha.DAY_OF_MONTH)+number));
+		
+		int dias= calendar.get(fecha.DAY_OF_MONTH)+number;
+		int mes= calendar.get(fecha.MONTH);
+		int ano= calendar.get(fecha.YEAR);
+		String date2 = String.valueOf(dias)+'/'+ String.valueOf(mes)+'/'+ String.valueOf(ano);
+		
+		model.addAttribute("sumDaysTime", formattedDate);
+		model.addAttribute("sumDaysTime2", date2);
 		model.addAttribute("userName", user.getUserName());
-
+		model.addAttribute("userSurname", user.getUserSurname());
+		
 		return "user";
 
 	}

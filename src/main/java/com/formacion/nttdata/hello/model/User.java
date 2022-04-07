@@ -3,6 +3,7 @@ package com.formacion.nttdata.hello.model;
 public class User {
 	String userName;
 	String userSurname;
+	int number;
 	
 	public String getUserName() {
 		return userName;
@@ -16,7 +17,11 @@ public class User {
 	public void setUserSurname(String userSurname) {
 		this.userSurname = userSurname;
 	}
-	
-	
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
 	
 }

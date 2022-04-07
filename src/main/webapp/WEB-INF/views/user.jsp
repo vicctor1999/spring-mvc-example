@@ -8,5 +8,10 @@
 </head>
 <body>
 	<h3>Hi ${userName}</h3>
+	<h3>${userSurname}</h3>	
+	<h3>Metodo 1</h3>	
+	<P>The time of your birthday is ${sumDaysTime}.</p>
+	<h3>Metodo 2</h3>	
+	<P>The time of your birthday is ${sumDaysTime2}.</p>
 </body>
 </html>

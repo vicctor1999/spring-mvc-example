@@ -10,8 +10,13 @@
 	<h1>Hello world!</h1>
 	<P>The time on the server is ${serverTime}.</p>
 	<form action="user" method="post">
-		<input type="text" name="userName"><br> <input
-			type="submit" value="Login">
+		<h3>Nombre</h3>
+		<input type="text" name="userName"><br>
+		<h3>Apellidos</h3>
+		<input type="text" name="userSurname"><br>
+		<h3>Dias hasta cumpleaños</h3>  
+		<input type="text" name="number"><br> 
+		<input type="submit" value="Login">
 	</form>
 </body>
 </html>
