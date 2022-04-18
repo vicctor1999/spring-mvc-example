@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.formacion.nttdata.hello.model.User;
+import com.formacion.nttdata.hello.services.services;
 
 @Controller
 
@@ -25,12 +26,13 @@ public class HomeController {
 	 * 
 	 */
 	/*@Autowired
-	HomeService servicio;*/
+	services servicio;*/
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 
 	public String home(Locale locale, Model model) {
 
+		//servicio.HomeService();
 		System.out.println("Home Page Requested, locale = " + locale);
 
 		Date date = new Date();

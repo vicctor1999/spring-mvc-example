@@ -6,6 +6,11 @@
   <packaging>war</packaging>
   <name>spring-mvc-example</name>
   <description>spring-mvc-example</description>
+   <properties>
+      <lombok.version>1.18.12</lombok.version>
+      <mybatis.version>3.5.6</mybatis.version>
+      <oracle.jdbc.version>19.7.0.0</oracle.jdbc.version>
+   </properties>
   <dependencies>
   		<dependency>
             <groupId>junit</groupId>
@@ -42,6 +47,35 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8-production</artifactId>
+            <version>${oracle.jdbc.version}</version>
+            <type>pom</type>
+        </dependency>
+        <!-- C3P0 support -->
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+        </dependency>
+        <!--support for mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+        <!-- spring mybatis integration -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.0.0</version>
+        </dependency>
   </dependencies>
   
   <build>
@@ -53,7 +87,7 @@
           <release>17</release>
         </configuration>
       </plugin>
-      <plugin>
+	   <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
       </plugin>
